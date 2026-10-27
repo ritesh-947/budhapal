@@ -77,6 +77,45 @@
           "grade": "A+"
         }
       ]
+    },
+    {
+      "rollNo": "73",
+      "class": "1",
+      "studentName": "Ananya Priyadarshini",
+      "academicYear": "2026 - 2027",
+      "examTitle": "Annual Examination 2026-27",
+      "subjects": [
+        {
+          "name": "Odia (ମାତୃଭାଷା)",
+          "fullMarks": 100,
+          "marksObtained": 36,
+          "grade": "E"
+        },
+        {
+          "name": "English",
+          "fullMarks": 100,
+          "marksObtained": 24,
+          "grade": "F"
+        },
+        {
+          "name": "Mathematics (ଗଣିତ)",
+          "fullMarks": 100,
+          "marksObtained": 28,
+          "grade": "F"
+        },
+        {
+          "name": "Environmental Studies / Science",
+          "fullMarks": 100,
+          "marksObtained": 12,
+          "grade": "F"
+        },
+        {
+          "name": "General Knowledge & Art",
+          "fullMarks": 50,
+          "marksObtained": 18,
+          "grade": "E"
+        }
+      ]
     }
   ]
 }
