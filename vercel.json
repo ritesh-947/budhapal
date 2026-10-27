@@ -1,0 +1,16 @@
+{
+  "rewrites": [
+    {
+      "source": "/binayak",
+      "destination": "/binayak/index.html"
+    },
+    {
+      "source": "/binayak/results",
+      "destination": "/binayak/results.html"
+    },
+    {
+      "source": "/binayak/results/:class/:roll",
+      "destination": "/binayak/results.html"
+    }
+  ]
+}
