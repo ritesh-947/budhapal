@@ -1,0 +1,82 @@
+{
+  "students": [
+    {
+      "rollNo": "72",
+      "class": "2",
+      "studentName": "Aarav Mohapatra",
+      "academicYear": "2025 - 2027",
+      "examTitle": "Annual Examination 2025-26",
+      "subjects": [
+        {
+          "name": "Odia (ମାତୃଭାଷା)",
+          "fullMarks": 100,
+          "marksObtained": 92,
+          "grade": "A+"
+        },
+        {
+          "name": "English",
+          "fullMarks": 100,
+          "marksObtained": 88,
+          "grade": "A"
+        },
+        {
+          "name": "Mathematics (ଗଣିତ)",
+          "fullMarks": 100,
+          "marksObtained": 95,
+          "grade": "A+"
+        },
+        {
+          "name": "Environmental Studies / Science",
+          "fullMarks": 100,
+          "marksObtained": 90,
+          "grade": "A+"
+        },
+        {
+          "name": "General Knowledge & Art",
+          "fullMarks": 50,
+          "marksObtained": 46,
+          "grade": "A+"
+        }
+      ]
+    },
+    {
+      "rollNo": "73",
+      "class": "2",
+      "studentName": "Ananya Priyadarshini",
+      "academicYear": "2025 - 2026",
+      "examTitle": "Annual Examination 2025-26",
+      "subjects": [
+        {
+          "name": "Odia (ମାତୃଭାଷା)",
+          "fullMarks": 100,
+          "marksObtained": 96,
+          "grade": "A+"
+        },
+        {
+          "name": "English",
+          "fullMarks": 100,
+          "marksObtained": 94,
+          "grade": "A+"
+        },
+        {
+          "name": "Mathematics (ଗଣିତ)",
+          "fullMarks": 100,
+          "marksObtained": 78,
+          "grade": "B"
+        },
+        {
+          "name": "Environmental Studies / Science",
+          "fullMarks": 100,
+          "marksObtained": 62,
+          "grade": "C"
+        },
+        {
+          "name": "General Knowledge & Art",
+          "fullMarks": 50,
+          "marksObtained": 48,
+          "grade": "A+"
+        }
+      ]
+    }
+  ]
+}

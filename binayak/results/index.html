@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="or">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binayaka Abasika Bidyalaya, Budhapal - Student Result Portal</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Oriya:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans Oriya', sans-serif;
+            background-color: #ffffff;
+            color: #111827;
+        }
+        .modal-fade-in { animation: fadeIn 0.25s ease-out forwards; }
+        .modal-pop { animation: popUp 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes popUp { from { opacity: 0; transform: scale(0.85); } to { opacity: 1; transform: scale(1); } }
+        .heading-maroon { color: #b30000; }
+        .btn-green { background-color: #00b050; }
+        .btn-green:hover { background-color: #009343; }
+        @media print {
+            body { background: white; }
+            .no-print { display: none !important; }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between max-w-xl mx-auto border-x border-gray-200 shadow-md">
+
+    <!-- Top Container -->
+    <div>
+        <!-- Header -->
+        <header class="p-4 flex items-center gap-3 border-b-2 border-black">
+            <div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 bg-blue-100 border border-emerald-400 flex items-center justify-center relative">
+                <svg viewBox="0 0 100 100" class="w-full h-full">
+                    <rect x="0" y="0" width="100" height="60" fill="#e0f2fe"/>
+                    <circle cx="50" cy="30" r="14" fill="#fef08a"/>
+                    <path d="M-10 65 Q 25 35, 60 65 T 110 65 L 110 100 L -10 100 Z" fill="#84cc16"/>
+                    <path d="M20 70 Q 60 45, 100 70 L 100 100 L 20 100 Z" fill="#65a30d"/>
+                </svg>
+            </div>
+            <h1 class="text-xl font-bold text-emerald-600 leading-tight tracking-wide">
+                ବିନାୟକ ଆବାସିକ ବିଦ୍ୟାଳୟ, ବୁଢ଼ାପାଳ
+            </h1>
+        </header>
+
+        <!-- MAIN SEARCH VIEW -->
+        <main id="searchView" class="p-4">
+            <h2 class="text-xl sm:text-2xl font-extrabold heading-maroon mb-4 tracking-tight">
+                STUDENT RESULT SUMMARY
+            </h2>
+
+            <form id="resultForm" onsubmit="handleFormSubmit(event)" class="space-y-3">
+                <div class="flex flex-wrap items-center gap-2">
+                    <input 
+                        type="text" 
+                        id="rollNo" 
+                        placeholder="Roll No." 
+                        class="px-3 py-2 border-2 border-black rounded-md text-base font-semibold w-28 text-center focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                        autocomplete="off"
+                    >
+                    
+                    <div class="relative">
+                        <select 
+                            id="classSelect" 
+                            class="appearance-none px-4 py-2 pr-8 border-2 border-black rounded-md text-base font-semibold bg-white cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                        >
+                            <option value="">Class</option>
+                            <option value="1">Class 1</option>
+                            <option value="2">Class 2</option>
+                            <option value="3">Class 3</option>
+                            <option value="4">Class 4</option>
+                            <option value="5">Class 5</option>
+                            <option value="6">Class 6</option>
+                            <option value="7">Class 7</option>
+                            <option value="8">Class 8</option>
+                            <option value="9">Class 9</option>
+                            <option value="10">Class 10</option>
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-black font-bold">
+                            v
+                        </div>
+                    </div>
+
+                    <button 
+                        type="submit" 
+                        class="btn-green text-white font-bold px-4 py-2 rounded-md transition duration-150 shadow-sm hover:shadow active:scale-95"
+                    >
+                        View Marks
+                    </button>
+                </div>
+
+                <div>
+                    <button 
+                        type="button" 
+                        onclick="resetForm()" 
+                        class="bg-gray-700 hover:bg-gray-800 text-white font-semibold px-5 py-1.5 rounded-md text-sm border border-gray-900 transition active:scale-95"
+                    >
+                        Reset
+                    </button>
+                </div>
+            </form>
+
+            <hr class="my-4 border-t-2 border-black">
+
+            <div class="space-y-4 text-sm leading-relaxed">
+                <p class="font-bold text-base text-black">
+                    For any query: Contact +91 8658880791
+                </p>
+
+                <div class="bg-red-50/80 border border-red-100 rounded-2xl p-4 text-red-800">
+                    <ol class="list-decimal list-inside space-y-1.5 font-bold">
+                        <li>The result is provisional.</li>
+                        <li>In case of any typological error or discrepancy, please contact +91 8658880791.</li>
+                        <li>MPR : Malpractice Reported.</li>
+                        <li>Rechecking results will be marked with an asterisk(*) symbol.</li>
+                    </ol>
+                </div>
+
+                <div class="pt-2">
+                    <div class="w-36 h-16 border border-gray-100 bg-gray-50/50 flex items-center justify-center p-2 mb-1 rounded">
+                        <svg viewBox="0 0 200 80" class="w-full h-full text-black">
+                            <path d="M 10,45 Q 30,10 40,50 T 60,35 T 80,55 Q 90,20 110,40 T 130,30 T 150,50 T 170,25 T 190,45" fill="none" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round"/>
+                            <path d="M 25,50 Q 70,65 140,40" fill="none" stroke="#1e293b" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-base font-bold text-black">Principal</h3>
+                </div>
+
+                <div>
+                    <h3 class="text-base font-bold text-black mb-2">Disclaimer:</h3>
+                    <div class="bg-purple-50/80 border border-purple-100 rounded-2xl p-4 text-purple-900">
+                        <ol class="list-decimal list-inside space-y-1.5 font-bold">
+                            <li>The results published are verified by AI.</li>
+                            <li>The school shall not be responsible for any inadvent error that may have crept into the results being displayed.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- MARKS RESULT DETAIL VIEW (Dynamically Populated) -->
+        <main id="resultView" class="p-4 hidden">
+            <div class="flex items-center justify-between mb-4 no-print">
+                <button 
+                    onclick="goBackToSearch()" 
+                    class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold px-3 py-1.5 rounded-md text-sm flex items-center gap-1 transition"
+                >
+                    ← Back to Search
+                </button>
+                <button 
+                    onclick="window.print()" 
+                    class="btn-green text-white font-bold px-3 py-1.5 rounded-md text-sm transition"
+                >
+                    🖨️ Print Marksheet
+                </button>
+            </div>
+
+            <div class="bg-white border-2 border-emerald-600 rounded-xl p-4 shadow-sm space-y-4">
+                <div class="border-b pb-3 text-center">
+                    <span id="resExamTitle" class="bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">Annual Examination</span>
+                    <h3 class="text-xl font-extrabold text-gray-900 mt-2">STUDENT MARKSHEET</h3>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg p-3 text-sm grid grid-cols-2 gap-2 border border-gray-200">
+                    <div>
+                        <span class="text-gray-500 font-medium block text-xs">Student Name</span>
+                        <span class="font-bold text-gray-900 text-base" id="resStudentName">--</span>
+                    </div>
+                    <div>
+                        <span class="text-gray-500 font-medium block text-xs">Roll Number</span>
+                        <span class="font-bold text-gray-900 text-base" id="resRollNo">--</span>
+                    </div>
+                    <div>
+                        <span class="text-gray-500 font-medium block text-xs">Class</span>
+                        <span class="font-bold text-gray-900 text-base" id="resClass">--</span>
+                    </div>
+                    <div>
+                        <span class="text-gray-500 font-medium block text-xs">Academic Year</span>
+                        <span class="font-bold text-gray-900 text-base" id="resAcademicYear">--</span>
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm border-collapse border border-gray-300">
+                        <thead>
+                            <tr class="bg-emerald-700 text-white font-bold">
+                                <th class="p-2 border border-gray-300">Subject</th>
+                                <th class="p-2 border border-gray-300 text-center">Full Marks</th>
+                                <th class="p-2 border border-gray-300 text-center">Marks Obtained</th>
+                                <th class="p-2 border border-gray-300 text-center">Grade</th>
+                            </tr>
+                        </thead>
+                        <tbody id="marksTableBody" class="divide-y divide-gray-200 font-medium">
+                            <!-- Injected Dynamically -->
+                        </tbody>
+                        <tfoot>
+                            <tr class="bg-gray-100 font-bold text-gray-900">
+                                <td class="p-2 border border-gray-300">TOTAL</td>
+                                <td id="totalFullMarks" class="p-2 border border-gray-300 text-center">0</td>
+                                <td id="totalMarksObtained" class="p-2 border border-gray-300 text-center text-base text-emerald-700">0</td>
+                                <td id="overallPercentage" class="p-2 border border-gray-300 text-center text-emerald-700">0%</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <div class="flex items-center justify-between bg-emerald-50 border border-emerald-200 p-3 rounded-lg">
+                    <div>
+                        <span class="text-xs font-semibold text-emerald-800 block">FINAL RESULT STATUS</span>
+                        <span class="text-lg font-black text-emerald-600 tracking-wide">PASSED - (EXCELLENT)</span>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-xs font-semibold text-gray-500 block">OVERALL GRADE</span>
+                        <span id="overallGrade" class="text-xl font-black text-emerald-700">A1</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="p-4 text-center border-t-2 border-black mt-6">
+        <p class="text-sm font-bold text-gray-700">
+            ©️ 2026 Binayaka Abasika Bidyalaya. All Rights Reserved
+        </p>
+    </footer>
+
+    <!-- POPUP MODAL -->
+    <div 
+        id="errorModal" 
+        class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-purple-900/20 backdrop-blur-sm modal-fade-in"
+    >
+        <div class="bg-[#f2e6ff] border-2 border-purple-200 rounded-2xl w-full max-w-sm p-6 text-center shadow-2xl modal-pop flex flex-col items-center">
+            <div class="w-24 h-24 mb-4 relative flex items-center justify-center">
+                <svg viewBox="0 0 100 100" class="w-full h-full drop-shadow-md">
+                    <circle cx="50" cy="50" r="42" fill="none" stroke="#ef4444" stroke-width="7"/>
+                    <line x1="33" y1="33" x2="67" y2="67" stroke="#ef4444" stroke-width="8" stroke-linecap="round"/>
+                    <line x1="67" y1="33" x2="33" y2="67" stroke="#ef4444" stroke-width="8" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <h3 class="text-2xl font-black text-black mb-4 tracking-tight" id="modalTitle">Roll No!</h3>
+            <p class="text-lg font-bold text-black mb-6 leading-snug" id="modalMessage">Please enter correct roll no!</p>
+            <button 
+                onclick="closeModal()" 
+                class="btn-green text-white font-bold px-8 py-2 rounded-md text-base transition duration-150 active:scale-95 shadow"
+            >
+                Ok
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        let resultsDatabase = { students: [] };
+
+        // Fetch database on load
+        window.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const response = await fetch('results.json');
+                resultsDatabase = await response.json();
+            } catch (err) {
+                console.error("Could not load results database:", err);
+            }
+            handleRouting();
+        });
+
+        window.addEventListener('popstate', handleRouting);
+
+        function handleRouting() {
+            const path = window.location.pathname;
+            const parts = path.split('/');
+            // URL pattern: /binayak/results/{class}/{rollNo}
+            if (parts.length >= 5 && parts[parts.length - 3] === 'results') {
+                const cls = parts[parts.length - 2];
+                const roll = parts[parts.length - 1];
+                loadStudentMarks(roll, cls, false);
+            } else {
+                showSearchView();
+            }
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const rollInput = document.getElementById('rollNo').value.trim();
+            const classInput = document.getElementById('classSelect').value;
+
+            if (!classInput) {
+                showModal("Class Required!", "Please select a valid class!");
+                return;
+            }
+            if (!rollInput) {
+                showModal("Roll No!", "Please enter correct roll no!");
+                return;
+            }
+
+            loadStudentMarks(rollInput, classInput, true);
+        }
+
+        function loadStudentMarks(roll, cls, updateHistory) {
+            const student = resultsDatabase.students.find(s => s.rollNo === roll && s.class === cls);
+
+            if (student) {
+                renderMarkSheet(student);
+                if (updateHistory) {
+                    const newPath = `/binayak/results/${cls}/${roll}`;
+                    history.pushState({ roll, cls }, '', newPath);
+                }
+            } else {
+                showModal("Roll No!", "Please enter correct roll no!");
+                if (!document.getElementById('searchView').classList.contains('hidden')) {
+                    // Stay on search view
+                } else {
+                    goBackToSearch(false);
+                }
+            }
+        }
+
+        function renderMarkSheet(student) {
+            document.getElementById('resStudentName').innerText = student.studentName;
+            document.getElementById('resRollNo').innerText = student.rollNo;
+            document.getElementById('resClass').innerText = `Class ${student.class}`;
+            document.getElementById('resAcademicYear').innerText = student.academicYear;
+            document.getElementById('resExamTitle').innerText = student.examTitle;
+
+            const tbody = document.getElementById('marksTableBody');
+            tbody.innerHTML = '';
+
+            let totalFull = 0;
+            let totalObtained = 0;
+
+            student.subjects.forEach(sub => {
+                totalFull += sub.fullMarks;
+                totalObtained += sub.marksObtained;
+
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td class="p-2 border border-gray-300 font-semibold">${sub.name}</td>
+                    <td class="p-2 border border-gray-300 text-center">${sub.fullMarks}</td>
+                    <td class="p-2 border border-gray-300 text-center font-bold text-gray-800">${sub.marksObtained}</td>
+                    <td class="p-2 border border-gray-300 text-center text-emerald-600 font-bold">${sub.grade}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            const percentage = ((totalObtained / totalFull) * 100).toFixed(1);
+            document.getElementById('totalFullMarks').innerText = totalFull;
+            document.getElementById('totalMarksObtained').innerText = totalObtained;
+            document.getElementById('overallPercentage').innerText = `${percentage}%`;
+
+            // Set overall grade based on percentage
+            let grade = 'A+';
+            if (percentage < 33) grade = 'F';
+            else if (percentage < 50) grade = 'E';
+            else if (percentage < 60) grade = 'D';
+            else if (percentage < 70) grade = 'C';
+            else if (percentage < 80) grade = 'B';
+            else if (percentage < 90) grade = 'A';
+            document.getElementById('overallGrade').innerText = grade;
+
+            document.getElementById('searchView').classList.add('hidden');
+            document.getElementById('resultView').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showSearchView() {
+            document.getElementById('resultView').classList.add('hidden');
+            document.getElementById('searchView').classList.remove('hidden');
+        }
+
+        function goBackToSearch(updateHist = true) {
+            if (updateHist) {
+                history.pushState({}, '', '/binayak/results');
+            }
+            showSearchView();
+        }
+
+        function resetForm() {
+            document.getElementById('resultForm').reset();
+            document.getElementById('rollNo').focus();
+        }
+
+        function showModal(title, message) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalMessage').innerText = message;
+            document.getElementById('errorModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('errorModal').classList.add('hidden');
+        }
+
+        document.getElementById('errorModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+    </script>
+</body>
+</html>
