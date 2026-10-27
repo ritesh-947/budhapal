@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Binayaka Abasika Bidyala, Budhapal</title>
+    <title>Binayaka Abasika Bidyalaya, Budhapal</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
@@ -24,10 +24,12 @@
 
         <!-- Top Header with Logo -->
         <header class="p-4 border-b border-gray-100 flex items-center gap-3 bg-white sticky top-0 z-10 shadow-sm">
-           <img src="logo.jpg" width="50px" style="border-radius: 100%;">
-            <h1 class="text-xl font-bold text-emerald-600 leading-tight tracking-wide">
+           <img src="logo.jpg" width="40px" style="border-radius: 100%;">
+           <a href="https://budhapal.com/binayak" class="no-underline">
+            <h1 class="text-xl font-bold text-emerald-600 leading-tight tracking-wide hover:text-emerald-700 cursor-pointer">
                 ବିନାୟକ ଆବାସିକ ବିଦ୍ୟାଳୟ, ବୁଢ଼ାପାଳ
             </h1>
+        </a>
         </header>
 
         <!-- Main Body Content -->
@@ -56,6 +58,24 @@
                     </p>
                 </div>
             </section>
+
+
+            <!-- RESULT SEARCH SECTION -->
+<form id="resultForm" onsubmit="handleFormSubmit(event)" class="space-y-3">
+    <button
+        type="submit"
+        class="w-full bg-emerald-600 hover:bg-emerald-700 active:scale-[0.98] text-white font-bold py-3 rounded-xl shadow-md shadow-emerald-600/20 transition duration-200"
+    >
+        Visit Result Portal →
+    </button>
+</form>
+
+<script>
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        window.location.href = "https://budhapal.com/binayak/results/";
+    }
+</script>
 
             <!-- Section 1: Our Classrooms -->
             <section class="space-y-2">
@@ -214,7 +234,7 @@
 
         <!-- Footer -->
         <footer class="mt-auto bg-gray-900 text-gray-400 text-xs text-center py-4 px-4 border-t border-gray-800">
-            <p>©️ 2026 Budhapal.com. All Rights Reserved.</p>
+            <p>©️ 2026 Binayaka Abasika Bidyalaya. All Rights Reserved.</p>
         </footer>
 
     </main>
